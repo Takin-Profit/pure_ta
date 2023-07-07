@@ -141,7 +141,7 @@ def get_atr_sl_wma(days: int = 800):
 
 @pytest.fixture(scope="package")
 def get_btc_tr(days: int = 420):
-    return _get_quotes("btc_tr.csv", days)
+    return _get_quotes("btc_tr.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")
