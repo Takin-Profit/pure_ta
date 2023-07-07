@@ -61,7 +61,7 @@ def get_zeroes(days: int = 200) -> list[Quote]:
 
 @pytest.fixture(scope="package")
 def get_eth_rma(days: int = 500):
-    return _get_quotes("eth_rma.csv", days)
+    return _get_quotes("eth_rma.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")

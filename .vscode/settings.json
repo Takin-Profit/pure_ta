@@ -19,7 +19,8 @@
         "Build",
         "Quote",
         "Test",
-        "Ta"
+        "Ta",
+        "Rma"
     ],
     "python.testing.pytestArgs": [
         "tests"

@@ -3,10 +3,8 @@
 * https://docs.google.com/spreadsheets/d/12IZyWjG485EHuOU__1sR0c0dw2VjvI3cW_5ERvhGm_k/edit?usp=sharing.
 """  # noqa: E501
 import math
-import os
 
-from pure_ta._types import Quote
-from pure_ta.ta import Ta
+from pure_ta import Quote, Ta
 
 
 def test_sma_returns_correct_number_of_results(get_default: list[Quote]):
@@ -21,9 +19,6 @@ def test_number_of_results_without_nan(get_default: list[Quote]):
     sma = Ta.sma()
     results = [sma(q.close) for q in get_default]
     result = [r for r in results if not math.isnan(r)]
-    # sourcery skip: no-loop-in-tests
-    for r in results:
-        print(f"{r}{os.linesep}")
     assert len(result) == 483
 
 
