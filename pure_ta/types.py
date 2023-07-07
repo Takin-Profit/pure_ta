@@ -5,7 +5,13 @@ from decimal import Decimal
 from typing import Self, Union
 
 from pure_ta.enum_types import CandlePart
-from pure_ta.err_msg import ErrMsg
+
+
+@dataclass(frozen=True)
+class ErrMsg:
+    """an error message."""
+
+    msg: str
 
 
 @dataclass(frozen=True)

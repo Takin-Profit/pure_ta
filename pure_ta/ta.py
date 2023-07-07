@@ -1,6 +1,7 @@
+"""Ta class which contains functions for calculating technical indicators."""
 from typing import Callable
 
-from pure_ta.moving_averages import get_sma
+from pure_ta.sma import get_sma
 
 
 class Ta:

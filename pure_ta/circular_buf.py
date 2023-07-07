@@ -1,5 +1,6 @@
 """ A circular buffer implementation for storing values in a fixed size array.
     """
+import math
 from array import array
 from typing import Iterable
 
@@ -36,7 +37,7 @@ class CircularBuf:
         return (
             self._buffer[self._start]
             if self._counter > 0 and self.is_full
-            else float("nan")
+            else math.nan
         )
 
     @property
@@ -47,7 +48,7 @@ class CircularBuf:
                 (self._start - 1 + len(self._buffer)) % len(self._buffer)
             ]  # noqa: E501
             if self.is_full
-            else float("nan")
+            else math.nan
         )
 
     @property
@@ -64,5 +65,4 @@ class CircularBuf:
         """put a value into the buffer."""
         self._buffer[self._start] = value
         self._start = (self._start + 1) % len(self._buffer)
-        self._counter = min(self._counter + 1, len(self._buffer))
         self._counter = min(self._counter + 1, len(self._buffer))
