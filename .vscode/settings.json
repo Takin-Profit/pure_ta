@@ -22,7 +22,8 @@
         "Test",
         "Ta",
         "Rma",
-        "Atr"
+        "Atr",
+        "Wma"
     ],
     "python.testing.pytestArgs": [
         "tests"

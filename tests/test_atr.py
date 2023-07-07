@@ -38,6 +38,7 @@ def test_atr_returns_correct_calculation_results(get_gold_atr: list[Quote]):
     assert isclose(round(results[29], 6), 33.534839, rel_tol=0.54)
     # warmup period
     assert isclose(round(results[120], 6), 28.173596, rel_tol=0.001)
+    # warmup period complete
     assert round(results[249], 6) == 26.339388
     assert round(results[501], 6) == 23.935408
     assert round(results[744], 6) == 27.673529

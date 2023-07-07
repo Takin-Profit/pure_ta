@@ -7,6 +7,7 @@ from pure_ta._ema import get_ema
 from pure_ta._rma import get_rma
 from pure_ta._sma import get_sma
 from pure_ta._types import Hlc
+from pure_ta._wma import get_wma
 
 
 def _validate_arg(indicator: str, value: int, min_value: int = 1):
@@ -55,3 +56,9 @@ class Ta:
         """Return a function that calculates the Average True Range."""
         _validate_arg("ATR (Average True Range)", length)
         return get_atr(length)
+
+    @staticmethod
+    def wma(length: int = 15) -> Callable[[float], float]:
+        """Return a function that calculates the Weighted Moving Average."""
+        _validate_arg("WMA (Weighted Moving Average)", length)
+        return get_wma(length)
