@@ -1,7 +1,8 @@
+"""buffer tests."""
 from array import array
 from math import isnan
 
-from pure_ta.circular_buf import CircularBuf
+from pure_ta._circular_buf import CircularBuf
 
 
 def test_circular_buf_init():
@@ -64,8 +65,10 @@ def test_circular_buf_overfill():
 
 
 def test_circular_buf_not_full():
-    """Test that the is_full property returns False
-    when the buffer is not full."""
+    """Test the is_full property.
+
+    should returns False when the buffer is not full.
+    """
     size = 5
     buf = CircularBuf(size)
     data = [1.0, 2.0, 3.0]
@@ -80,8 +83,11 @@ def test_circular_buf_not_full():
 
 
 def test_circular_buf_fill_up():
-    """Test the transition of the is_full property from False
-    to True as the buffer fills up."""
+    """More is_full property tests.
+
+    Test the transition of the is_full property from False
+    to True as the buffer fills up.
+    """
     size = 5
     buf = CircularBuf(size)
     data = [1.0, 2.0, 3.0, 4.0, 5.0]

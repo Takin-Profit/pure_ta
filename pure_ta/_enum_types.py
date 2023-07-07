@@ -1,17 +1,17 @@
-"""common enum types used throughout the library"""
+"""common enum types used throughout the library."""
 from datetime import timedelta
 from enum import Enum, StrEnum
 
 
 class StDevOf(StrEnum):
-    """the type of standard deviation to calculate"""
+    """the type of standard deviation to calculate."""
 
     POPULATION = "Population"
     SAMPLE = "Sample"
 
 
 class CandlePart(StrEnum):
-    """the part of the candle to calculate indicators for"""
+    """the part of the candle to calculate indicators for."""
 
     OPEN = "Open"
     HIGH = "High"
@@ -26,14 +26,14 @@ class CandlePart(StrEnum):
 
 
 class EndType(StrEnum):
-    """the type of end to calculate indicators for"""
+    """the type of end to calculate indicators for."""
 
     CLOSE = "Close"
     HIGH_LOW = "HighLow"
 
 
 class Match(Enum):
-    """matches trend direction"""
+    """matches trend direction."""
 
     BEAR_CONFIRMED = -200
     BEAR_SIGNAL = -100
@@ -46,7 +46,7 @@ class Match(Enum):
 
 
 class AtrSlMaType(StrEnum):
-    """the moving average type to use for the atr stop loss"""
+    """the moving average type to use for the atr stop loss."""
 
     RMA = "Rma"
     SMA = "Sma"
@@ -55,7 +55,7 @@ class AtrSlMaType(StrEnum):
 
 
 class MaType(StrEnum):
-    """moving average type to use for certain indicators"""
+    """moving average type to use for certain indicators."""
 
     ALMA = "Alma"
     DEMA = "Dema"
@@ -73,7 +73,7 @@ class MaType(StrEnum):
 
 
 class TimeFrame(StrEnum):
-    """ "represents a time frame to calculate indicators for"""
+    """represents a time frame to calculate indicators for."""
 
     MONTH = "MONTH"
     THREE_WEEKS = "THREE_WEEKS"
@@ -114,7 +114,7 @@ class TimeFrame(StrEnum):
     ONE_MIN = "ONE_MIN"
 
     def to_time_delta(self) -> timedelta:
-        """converts a TimeFrame to a timedelta"""
+        """Converts a TimeFrame to a timedelta."""
         match self:
             case TimeFrame.MONTH:
                 # this will never get used

@@ -1,13 +1,13 @@
-"""contains moving average functions"""
+"""contains moving average functions."""
 import math
+from collections.abc import Callable
 from statistics import mean
-from typing import Callable
 
-from pure_ta.circular_buf import CircularBuf
+from pure_ta._circular_buf import CircularBuf
 
 
 def get_sma(length: int = 20) -> Callable[[float], float]:
-    """returns a function that calculates the simple moving average"""
+    """Returns a function that calculates the simple moving average."""
     buf = CircularBuf(size=length)
 
     def sma_func(data: float) -> float:

@@ -1,19 +1,21 @@
 """expected results.
-https://docs.google.com/spreadsheets/d/1lg7Fbz-986auSClakX9RS-Y-zrcDZYP8gfYSHQhHP4E/edit?usp=sharing"""  # noqa: E501
+
+https://docs.google.com/spreadsheets/d/1lg7Fbz-986auSClakX9RS-Y-zrcDZYP8gfYSHQhHP4E/edit?usp=sharing.
+"""  # noqa: E501
 import math
 
 from pure_ta import Quote, Ta
 
 
 def test_ema_returns_correct_number_of_results(get_default: list[Quote]):
-    """ema results should have the correct length."""
+    """Ema results should have the correct length."""
     ema = Ta.ema()
     results = [ema(q.close) for q in get_default]
     assert len(results) == 502
 
 
 def test_ema_returns_correct_number_of_results_without_nan(get_default: list[Quote]):
-    """ema results should return the correct number of results without nan."""
+    """Ema results should return the correct number of results without nan."""
     ema = Ta.ema()
     results = [ema(q.close) for q in get_default]
     results_without_nan = [r for r in results if not math.isnan(r)]
@@ -21,7 +23,7 @@ def test_ema_returns_correct_number_of_results_without_nan(get_default: list[Quo
 
 
 def test_ema_returns_correct_calculation_results(get_default: list[Quote]):
-    """ema results should return the correct calculation results."""
+    """Ema results should return the correct calculation results."""
     ema = Ta.ema()
     results = [ema(q.close) for q in get_default]
     assert math.isnan(results[0])

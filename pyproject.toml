@@ -14,15 +14,19 @@ python = "^3.11"
 ruff = "^0.0.277"
 pytest = "^7.4.0"
 pre-commit = "^3.3.3"
+mypy = "^1.4.1"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+[mypy]
+strict = true
+
 [tool.ruff]
 # Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
-select = ["E", "F"]
+select = ["E", "F", "UP", "D", "I"]
 ignore = []
 
 # Allow autofix for all enabled rules (when `--fix`) is provided.
@@ -66,3 +70,6 @@ target-version = "py310"
 [tool.ruff.mccabe]
 # Unlike Flake8, default to a complexity level of 10.
 max-complexity = 10
+
+[tool.ruff.pydocstyle]
+convention = "google"

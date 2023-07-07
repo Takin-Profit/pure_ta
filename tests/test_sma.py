@@ -1,21 +1,23 @@
 """expected results.
- * https://docs.google.com/spreadsheets/d/12IZyWjG485EHuOU__1sR0c0dw2VjvI3cW_5ERvhGm_k/edit?usp=sharing"""  # noqa: E501
+
+* https://docs.google.com/spreadsheets/d/12IZyWjG485EHuOU__1sR0c0dw2VjvI3cW_5ERvhGm_k/edit?usp=sharing.
+"""  # noqa: E501
 import math
 import os
 
+from pure_ta._types import Quote
 from pure_ta.ta import Ta
-from pure_ta.types import Quote
 
 
 def test_sma_returns_correct_number_of_results(get_default: list[Quote]):
-    """sma results should have the correct length."""
+    """Sma results should have the correct length."""
     sma = Ta.sma()
     results = [sma(q.close) for q in get_default]
     assert len(results) == 502
 
 
 def test_number_of_results_without_nan(get_default: list[Quote]):
-    """sma results should return the correct number of results without nan."""
+    """Sma results should return the correct number of results without nan."""
     sma = Ta.sma()
     results = [sma(q.close) for q in get_default]
     result = [r for r in results if not math.isnan(r)]
@@ -26,7 +28,7 @@ def test_number_of_results_without_nan(get_default: list[Quote]):
 
 
 def test_correct_calculation_results(get_default: list[Quote]):
-    """sma results should return the correct calculation results."""
+    """Sma results should return the correct calculation results."""
     sma = Ta.sma()
     results = [sma(q.close) for q in get_default]
     assert math.isnan(results[18])
@@ -38,7 +40,7 @@ def test_correct_calculation_results(get_default: list[Quote]):
 
 
 def test_open_tests(get_default: list[Quote]):
-    """sma results for open prices should be correct."""
+    """Sma results for open prices should be correct."""
     sma = Ta.sma()
     results = [sma(q.open) for q in get_default]
     assert math.isnan(results[18])
@@ -50,7 +52,7 @@ def test_open_tests(get_default: list[Quote]):
 
 
 def test_volume_tests(get_default: list[Quote]):
-    """sma results for volumes should be correct."""
+    """Sma results for volumes should be correct."""
     sma = Ta.sma()
     results = [sma(q.vol) for q in get_default]
     assert len(results) == 502

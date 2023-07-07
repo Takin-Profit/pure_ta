@@ -1,14 +1,14 @@
+from collections.abc import Callable
 from math import isnan
-from typing import Callable
 
 
 def get_ema(length: int = 20) -> Callable[[float], float]:
-    """returns a function that calculates the exponential moving average"""
+    """Returns a function that calculates the exponential moving average."""
     ema = float("nan")
     alpha = 2 / (length + 1)
     counter = 0
 
-    _sum = 0
+    _sum: float = 0
     sma_calculated = False
 
     def ema_function(data: float):

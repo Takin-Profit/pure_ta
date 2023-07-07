@@ -7,7 +7,7 @@ from typing import Any, Generator
 
 import pytest
 
-from pure_ta.types import Quote
+from pure_ta._types import Quote
 
 
 def quote_from_csv(data: str, use_timestamp: bool = False) -> Quote:
