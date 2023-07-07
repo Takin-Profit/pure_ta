@@ -1,10 +1,13 @@
 {
     "cSpell.words": [
+        "Arnaud",
         "gitlint",
+        "Legoux",
         "OHLC"
     ],
     "conventionalCommits.scopes": [
         "Build",
-        "Quote"
+        "Quote",
+        "Test"
     ]
 }

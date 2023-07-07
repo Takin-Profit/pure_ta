@@ -1,3 +1,4 @@
+"""common types used throughout the library"""
 from dataclasses import InitVar, dataclass
 from datetime import datetime
 from decimal import Decimal
@@ -49,6 +50,15 @@ class Quote:
     c: InitVar[float]
     v: InitVar[float]
 
+    def __post_init__(
+        self, o: float, h: float, l: float, c: float, v: float  # noqa: E741
+    ) -> None:  # noqa: E741
+        self._o = Decimal(o)
+        self._h = Decimal(h)
+        self._l = Decimal(l)
+        self._c = Decimal(c)
+        self._v = Decimal(v)
+
     @property
     def open(self) -> float:
         """the open price of the quote."""
@@ -77,24 +87,96 @@ class Quote:
 
     @property
     def hl2(self) -> float:
-        """"""
+        """the average of the high and low prices."""
         return float((self._h + self._l) / 2)
 
     @property
     def hlc3(self) -> float:
+        """the average of the high, low, and close prices."""
         return float((self._h + self._l + self._c) / 3)
 
     @property
     def oc2(self) -> float:
+        """the average of the open and close prices."""
         return float((self._o + self._c) / 2)
 
     @property
     def ohl3(self) -> float:
+        """the average of the open, high, and low prices."""
         return float((self._o + self._h + self._l) / 3)
 
     @property
     def ohlc4(self) -> float:
+        """the average of the open, high, low, and close prices."""
         return float((self._o + self._h + self._l + self._c) / 4)
+
+    @property
+    def hlc(self) -> Hlc:
+        """the high, low, and close prices."""
+        return Hlc(high=self.high, low=self.low, close=self.close)
+
+    @property
+    def open_with_vol(self) -> PriceDataWithVol:
+        """the open price with volume"""
+        return PriceDataWithVol(
+            value=self.open, time_stamp=self.time.isoformat(), volume=self.vol
+        )
+
+    @property
+    def high_with_vol(self) -> PriceDataWithVol:
+        """the high price with volume"""
+        return PriceDataWithVol(
+            value=self.high, time_stamp=self.time.isoformat(), volume=self.vol
+        )
+
+    @property
+    def low_with_vol(self) -> PriceDataWithVol:
+        """the low price with volume"""
+        return PriceDataWithVol(
+            value=self.low, time_stamp=self.time.isoformat(), volume=self.vol
+        )
+
+    @property
+    def close_with_vol(self) -> PriceDataWithVol:
+        """the close price with volume"""
+        return PriceDataWithVol(
+            value=self.close, time_stamp=self.time.isoformat(), volume=self.vol
+        )
+
+    @property
+    def hl2_with_vol(self) -> PriceDataWithVol:
+        """the hl2 price with volume"""
+        return PriceDataWithVol(
+            value=self.hl2, time_stamp=self.time.isoformat(), volume=self.vol
+        )
+
+    @property
+    def hlc3_with_vol(self) -> PriceDataWithVol:
+        """the hlc3 price with volume"""
+        return PriceDataWithVol(
+            value=self.hlc3, time_stamp=self.time.isoformat(), volume=self.vol
+        )
+
+    @property
+    def oc2_with_vol(self) -> PriceDataWithVol:
+        """the oc2 price with volume"""
+        return PriceDataWithVol(
+            value=self.oc2, time_stamp=self.time.isoformat(), volume=self.vol
+        )
+
+    @property
+    def ohl3_with_vol(self) -> PriceDataWithVol:
+        """the ohl3 price with volume"""
+        return PriceDataWithVol(
+            value=self.ohl3, time_stamp=self.time.isoformat(), volume=self.vol
+        )
+
+    @property
+    def ohlc4_with_vol(self) -> PriceDataWithVol:
+        """the ohlc4 price with volume"""
+        return PriceDataWithVol(
+            value=self.ohlc4, time_stamp=self.time.isoformat(), volume=self.vol
+        )
 
     @classmethod
     def empty(cls) -> Self:
@@ -130,14 +212,12 @@ class Quote:
             case candle_part.OHLC4:
                 return PriceData(time_stamp=self.time.isoformat(), value=self.ohlc4)
 
-    def __post_init__(
-        self, o: float, h: float, l: float, c: float, v: float  # noqa: E741
-    ) -> None:  # noqa: E741
-        self._o = Decimal(o)
-        self._h = Decimal(h)
-        self._l = Decimal(l)
-        self._c = Decimal(c)
-        self._v = Decimal(v)
+    def to_price_data_with_vol(self, candle_part: CandlePart) -> PriceDataWithVol:
+        """converts Quote to PriceDataWithVol"""
+        price_data = self.to_price_data(candle_part)
+        return PriceDataWithVol(
+            value=price_data.value, time_stamp=price_data.time_stamp, volume=self.vol
+        )
 
     @classmethod
     def create(
