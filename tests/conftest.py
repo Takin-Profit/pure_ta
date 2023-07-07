@@ -111,7 +111,7 @@ def get_eth_bbwp(days: int = 700):
 
 @pytest.fixture(scope="package")
 def get_gold_atr(days: int = 750):
-    return _get_quotes("gold_atr.csv", days)
+    return _get_quotes("gold_atr.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")

@@ -13,6 +13,7 @@
         "sourcery",
         "swma",
         "Tema",
+        "tradingview",
         "Vwma"
     ],
     "conventionalCommits.scopes": [
@@ -20,7 +21,8 @@
         "Quote",
         "Test",
         "Ta",
-        "Rma"
+        "Rma",
+        "Atr"
     ],
     "python.testing.pytestArgs": [
         "tests"

@@ -2,9 +2,11 @@
 from collections.abc import Callable
 
 from pure_ta._alma import get_alma
+from pure_ta._atr import get_atr
 from pure_ta._ema import get_ema
 from pure_ta._rma import get_rma
 from pure_ta._sma import get_sma
+from pure_ta._types import Hlc
 
 
 def _validate_arg(indicator: str, value: int, min_value: int = 1):
@@ -47,3 +49,9 @@ class Ta:
         """Return a function that calculates the Relative Moving Average."""
         _validate_arg("RMA (Relative Moving Average)", length)
         return get_rma(length)
+
+    @staticmethod
+    def atr(length: int = 14) -> Callable[[Hlc], float]:
+        """Return a function that calculates the Average True Range."""
+        _validate_arg("ATR (Average True Range)", length)
+        return get_atr(length)
