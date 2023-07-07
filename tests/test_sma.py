@@ -1,4 +1,5 @@
-"""sma tests"""
+"""expected results.
+ * https://docs.google.com/spreadsheets/d/12IZyWjG485EHuOU__1sR0c0dw2VjvI3cW_5ERvhGm_k/edit?usp=sharing"""  # noqa: E501
 import math
 import os
 

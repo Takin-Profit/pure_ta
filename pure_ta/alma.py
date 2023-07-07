@@ -6,6 +6,7 @@ The Gaussian function allows the weights to be further away from the
 current price, while still having a significant impact on
 the moving average. This allows the ALMA to be more responsive
 to price movements, while still filtering out noise."""
+import math
 from math import exp
 from typing import Callable
 
@@ -27,7 +28,7 @@ def get_alma(
         window.put(data)
 
         if window.filled_size < length:
-            return float("nan")
+            return math.nan
 
         norm = 0.0
         _sum = 0.0
