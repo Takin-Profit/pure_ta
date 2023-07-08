@@ -156,7 +156,7 @@ def mfi(length: int = 14) -> Callable[[PriceDataWithVol], float]:
     return get_mfi(length)
 
 
-def mom(length: int = 10) -> Callable[[float], float]:
+def mom(length: int = 20) -> Callable[[float], float]:
     """Return a function that calculates the Momentum."""
     _validate_arg("Momentum", length)
     return get_mom(length)

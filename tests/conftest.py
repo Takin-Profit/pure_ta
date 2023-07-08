@@ -116,7 +116,7 @@ def get_gold_atr(days: int = 750):
 
 @pytest.fixture(scope="package")
 def get_btc_mom(days: int = 800):
-    return _get_quotes("btc_mom.csv", days)
+    return _get_quotes("btc_mom.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")
