@@ -15,6 +15,7 @@ from pure_ta._hma import get_hma
 from pure_ta._kama import get_kama
 from pure_ta._linreg import get_linreg
 from pure_ta._mfi import get_mfi
+from pure_ta._mom import get_mom
 from pure_ta._percent_rank import get_percent_rank
 from pure_ta._rma import get_rma
 from pure_ta._sma import get_sma
@@ -153,3 +154,9 @@ def mfi(length: int = 14) -> Callable[[PriceDataWithVol], float]:
     """Return a function that calculates the Money Flow Index."""
     _validate_arg("MFI (Money Flow Index)", length)
     return get_mfi(length)
+
+
+def mom(length: int = 10) -> Callable[[float], float]:
+    """Return a function that calculates the Momentum."""
+    _validate_arg("Momentum", length)
+    return get_mom(length)
