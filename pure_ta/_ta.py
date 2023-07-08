@@ -11,6 +11,7 @@ from pure_ta._dema import get_dema
 from pure_ta._ema import get_ema
 from pure_ta._enum_types import AtrSlMaType, StDevOf
 from pure_ta._er import get_er
+from pure_ta._hma import get_hma
 from pure_ta._percent_rank import get_percent_rank
 from pure_ta._rma import get_rma
 from pure_ta._sma import get_sma
@@ -129,3 +130,9 @@ class Ta:
         """Return a function that calculates the efficiency ratio."""
         _validate_arg("ER (Efficiency Ratio)", length)
         return get_er(length)
+
+    @staticmethod
+    def hma(length: int = 16) -> Callable[[float], float]:
+        """Return a function that calculates the Hull Moving Average."""
+        _validate_arg("HMA (Hull Moving Average)", length)
+        return get_hma(length)

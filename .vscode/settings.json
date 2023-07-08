@@ -31,7 +31,8 @@
         "BBW",
         "Percent Rank",
         "Dema",
-        "ER"
+        "ER",
+        "HMA"
     ],
     "python.testing.pytestArgs": [
         "tests"
