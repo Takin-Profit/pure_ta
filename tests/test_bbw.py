@@ -5,7 +5,7 @@
 
 import math
 
-from pure_ta import Quote, Ta
+from pure_ta import Quote, ta
 
 # expected results.
 # https://docs.google.com/spreadsheets/d/1wRUEeAw5MeG50_zmDDt4CsFnqrsfxk5OHtjQtVSvavs/edit?usp=sharing
@@ -14,14 +14,14 @@ from pure_ta import Quote, Ta
 
 def test_bbw_returns_correct_number_of_results(get_eth_bbw: list[Quote]):
     """BBW results should have the correct length."""
-    bbw = Ta.bbw()
+    bbw = ta.bbw()
     results = [bbw(q.close) for q in get_eth_bbw]
     assert len(results) == 630
 
 
 def test_bbw_returns_correct_number_of_results_without_nan(get_eth_bbw: list[Quote]):
     """BBW results should exclude NaNs."""
-    bbw = Ta.bbw()
+    bbw = ta.bbw()
     results = [bbw(q.close) for q in get_eth_bbw]
     # Filter out NaN values
     results_without_nan = [r for r in results if not math.isnan(r)]
@@ -30,7 +30,7 @@ def test_bbw_returns_correct_number_of_results_without_nan(get_eth_bbw: list[Quo
 
 def test_bbw_returns_correct_calculation_results(get_eth_bbw: list[Quote]):
     """BBW results should match expected values."""
-    bbw = Ta.bbw()
+    bbw = ta.bbw()
     results = [bbw(q.close) for q in get_eth_bbw]
 
     assert round(results[6], 7) == 0.5883643

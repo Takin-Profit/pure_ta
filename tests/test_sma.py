@@ -1,7 +1,7 @@
 """sma tests."""
 import math
 
-from pure_ta import Quote, Ta
+from pure_ta import Quote, ta
 
 # expected results.
 # https://docs.google.com/spreadsheets/d/12IZyWjG485EHuOU__1sR0c0dw2VjvI3cW_5ERvhGm_k/edit?usp=sharing.
@@ -9,14 +9,14 @@ from pure_ta import Quote, Ta
 
 def test_sma_returns_correct_number_of_results(get_default: list[Quote]):
     """Sma results should have the correct length."""
-    sma = Ta.sma()
+    sma = ta.sma()
     results = [sma(q.close) for q in get_default]
     assert len(results) == 502
 
 
 def test_number_of_results_without_nan(get_default: list[Quote]):
     """Sma results should return the correct number of results without nan."""
-    sma = Ta.sma()
+    sma = ta.sma()
     results = [sma(q.close) for q in get_default]
     result = [r for r in results if not math.isnan(r)]
     assert len(result) == 483
@@ -24,7 +24,7 @@ def test_number_of_results_without_nan(get_default: list[Quote]):
 
 def test_correct_calculation_results(get_default: list[Quote]):
     """Sma results should return the correct calculation results."""
-    sma = Ta.sma()
+    sma = ta.sma()
     results = [sma(q.close) for q in get_default]
     assert math.isnan(results[18])
     assert round(results[19], 4) == 214.5250
@@ -36,7 +36,7 @@ def test_correct_calculation_results(get_default: list[Quote]):
 
 def test_open_tests(get_default: list[Quote]):
     """Sma results for open prices should be correct."""
-    sma = Ta.sma()
+    sma = ta.sma()
     results = [sma(q.open) for q in get_default]
     assert math.isnan(results[18])
     assert round(results[19], 4) == 214.3795
@@ -48,7 +48,7 @@ def test_open_tests(get_default: list[Quote]):
 
 def test_volume_tests(get_default: list[Quote]):
     """Sma results for volumes should be correct."""
-    sma = Ta.sma()
+    sma = ta.sma()
     results = [sma(q.vol) for q in get_default]
     assert len(results) == 502
     not_nan = [r for r in results if not math.isnan(r)]

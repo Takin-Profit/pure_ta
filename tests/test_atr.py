@@ -5,7 +5,7 @@
 
 from math import isclose, isnan
 
-from pure_ta import Quote, Ta
+from pure_ta import Quote, ta
 
 
 # Expected results.
@@ -13,14 +13,14 @@ from pure_ta import Quote, Ta
 # data exported from tradingview.com
 def test_atr_returns_correct_number_of_results(get_gold_atr: list[Quote]):
     """Atr results should have the correct length."""
-    atr = Ta.atr()
+    atr = ta.atr()
     results = [atr(q.hlc) for q in get_gold_atr]
     assert len(results) == 750
 
 
 def test_atr_returns_correct_number_of_results_without_nan(get_gold_atr: list[Quote]):
     """Atr results should have the correct number of non-NaN results."""
-    atr = Ta.atr()
+    atr = ta.atr()
     results = [atr(q.hlc) for q in get_gold_atr]
     non_nan_results = [r for r in results if not isnan(r)]
     assert len(non_nan_results) == 737
@@ -28,7 +28,7 @@ def test_atr_returns_correct_number_of_results_without_nan(get_gold_atr: list[Qu
 
 def test_atr_returns_correct_calculation_results(get_gold_atr: list[Quote]):
     """Atr results should be correctly calculated."""
-    atr = Ta.atr()
+    atr = ta.atr()
     results = [atr(q.hlc) for q in get_gold_atr]
 
     assert isnan(results[0])

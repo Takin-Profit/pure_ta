@@ -4,21 +4,21 @@
 # license that can be found in the LICENSE file.
 import math
 
-from pure_ta import Quote, Ta
+from pure_ta import Quote, ta
 
 
 # expected results.
 # https://docs.google.com/spreadsheets/d/1ZpzvmYn2nw3VnzE_waOHE69ic7pt3F0UH33Y9RBa_5Y/edit?usp=sharing
 def test_bb_returns_correct_number_of_results(get_default: list[Quote]):
     """Bollinger Bands results should have the correct length."""
-    bb = Ta.bb()
+    bb = ta.bb()
     results = [bb(q.close) for q in get_default]
     assert len(results) == 502
 
 
 def test_bb_returns_correct_number_of_results_without_nan(get_default: list[Quote]):
     """Bollinger Bands results should have the correct number of results without nan."""
-    bb = Ta.bb()
+    bb = ta.bb()
     results = [bb(q.close) for q in get_default]
 
     upper = [r for r in results if not math.isnan(r.upper)]
@@ -32,7 +32,7 @@ def test_bb_returns_correct_number_of_results_without_nan(get_default: list[Quot
 
 def test_bb_returns_correct_values_for_upper_band_calculated(get_default: list[Quote]):
     """Bollinger Bands should return the correct values for upper band calculated."""
-    bb = Ta.bb()
+    bb = ta.bb()
     results = [bb(q.close) for q in get_default]
 
     assert round(results[249].upper, 4) == 259.5642

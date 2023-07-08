@@ -5,7 +5,7 @@
 
 from math import isclose
 
-from pure_ta import Quote, Ta
+from pure_ta import Quote, ta
 
 # Expected results.
 # https://docs.google.com/spreadsheets/d/1aOTrwsM9hAi2Ps2FZdgC617PGZFsCzilv1pxfSP-3Cc/edit?usp=sharing
@@ -13,14 +13,14 @@ from pure_ta import Quote, Ta
 
 def test_rma_returns_correct_number_of_results(get_eth_rma: list[Quote]):
     """Rma results should have the correct length."""
-    rma = Ta.rma()
+    rma = ta.rma()
     results = [rma(q.close) for q in get_eth_rma]
     assert len(results) == 500
 
 
 def test_rma_returns_correct_values_for_eth_rma(get_eth_rma: list[Quote]):
     """Rma results should return correct values for eth_rma.csv."""
-    rma = Ta.rma()
+    rma = ta.rma()
     results = [rma(q.close) for q in get_eth_rma]
 
     assert isclose(round(results[200], 4), 1297.1244, rel_tol=1e-5, abs_tol=0.01)

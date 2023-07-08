@@ -4,7 +4,7 @@
 # license that can be found in the LICENSE file.
 from math import isclose, isnan
 
-from pure_ta import Quote, Ta
+from pure_ta import Quote, ta
 
 # expected results.
 # https://docs.google.com/spreadsheets/d/1x33gVMO4ZZdVmFwrIQoqR8u8iFARayk-XNoblY1jnic/edit?usp=sharing
@@ -15,14 +15,14 @@ def test_bbwp_results_have_correct_length(
     get_eth_bbwp: list[Quote],
 ):
     """Test that the result of the bbwp function has the correct length."""
-    bbwp = Ta.bbwp()
+    bbwp = ta.bbwp()
     result = [bbwp(q.close) for q in get_eth_bbwp]
     assert len(result) == 700
 
 
 def test_bbwp_returns_correct_number_of_results_without_nan(get_eth_bbwp: list[Quote]):
     """BBWP results should have the correct number of non-nan results."""
-    bbwp = Ta.bbwp()
+    bbwp = ta.bbwp()
     results = [bbwp(q.close) for q in get_eth_bbwp]
     results_without_nan = [result for result in results if not isnan(result)]
     assert len(results_without_nan) == 448
@@ -30,7 +30,7 @@ def test_bbwp_returns_correct_number_of_results_without_nan(get_eth_bbwp: list[Q
 
 def test_bbwp_returns_correct_calculation_results(get_eth_bbwp: list[Quote]):
     """BBWP should return the correct calculation results."""
-    bbwp = Ta.bbwp()
+    bbwp = ta.bbwp()
     results = [bbwp(q.close) for q in get_eth_bbwp]
 
     assert isnan(results[18])

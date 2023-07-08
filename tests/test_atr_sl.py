@@ -6,7 +6,7 @@ import math
 
 from pytest import approx  # type: ignore
 
-from pure_ta import AtrSlMaType, Quote, Ta
+from pure_ta import AtrSlMaType, Quote, ta
 
 # AtrSl RMA Expected results.
 # https://docs.google.com/spreadsheets/d/1pNv37IY18LyaHxf9XmdFAOAIj_iByq7Q_jwGSAv5ce0/edit?usp=sharing
@@ -15,7 +15,7 @@ from pure_ta import AtrSlMaType, Quote, Ta
 
 def test_atr_sl_rma_returns_correct_number_of_results(get_atr_sl_rma: list[Quote]):
     """AtrSl results should have the correct length."""
-    atr_sl = Ta.atr_sl()
+    atr_sl = ta.atr_sl()
     results = [atr_sl(q.hlc) for q in get_atr_sl_rma]
     assert len(results) == 800
 
@@ -24,7 +24,7 @@ def test_atr_sl_returns_correct_number_of_results_without_nan(
     get_atr_sl_rma: list[Quote],
 ):
     """ATRSL should return the correct number of results without NaN."""
-    atr_sl = Ta.atr_sl()
+    atr_sl = ta.atr_sl()
     results = [atr_sl(q.hlc) for q in get_atr_sl_rma]
     results_without_nan = [r for r in results if not math.isnan(r.short_sl)]
     assert len(results_without_nan) == 787
@@ -34,7 +34,7 @@ def test_atr_sl_returns_correct_short_stop_loss_with_ma_type_rma(
     get_atr_sl_rma: list[Quote],
 ):
     """ATRSL should return the correct SHORT stop loss with maType RMA."""
-    atr_sl = Ta.atr_sl()
+    atr_sl = ta.atr_sl()
     results = [atr_sl(q.hlc) for q in get_atr_sl_rma]
 
     assert math.isnan(results[0].short_sl)
@@ -55,7 +55,7 @@ def test_atr_sl_returns_correct_long_stop_loss_with_ma_type_rma(
     get_atr_sl_rma: list[Quote],
 ):
     """ATRSL should return the correct LONG stop loss with maType RMA."""
-    atr_sl = Ta.atr_sl()
+    atr_sl = ta.atr_sl()
     results = [atr_sl(q.hlc) for q in get_atr_sl_rma]
 
     assert math.isnan(results[0].long_sl)
@@ -81,7 +81,7 @@ def test_atr_sl_returns_correct_short_stop_loss_with_ma_type_sma(
     get_atr_sl_sma: list[Quote],
 ):
     """ATRSL should return the correct SHORT stop loss with maType SMA."""
-    atr_sl = Ta.atr_sl(ma_type=AtrSlMaType.SMA)
+    atr_sl = ta.atr_sl(ma_type=AtrSlMaType.SMA)
     results = [atr_sl(q.hlc) for q in get_atr_sl_sma]
 
     assert math.isnan(results[0].short_sl)
@@ -102,7 +102,7 @@ def test_atr_sl_returns_correct_long_stop_loss_with_ma_type_sma(
     get_atr_sl_sma: list[Quote],
 ):
     """ATRSL should return the correct LONG stop loss with maType SMA."""
-    atr_sl = Ta.atr_sl(ma_type=AtrSlMaType.SMA)
+    atr_sl = ta.atr_sl(ma_type=AtrSlMaType.SMA)
     results = [atr_sl(q.hlc) for q in get_atr_sl_sma]
 
     assert math.isnan(results[0].long_sl)
@@ -128,7 +128,7 @@ def test_atr_sl_returns_correct_short_stop_loss_with_ma_type_ema(
     get_atr_sl_ema: list[Quote],
 ):
     """ATRSL should return the correct SHORT stop loss with maType EMA."""
-    atr_sl = Ta.atr_sl(ma_type=AtrSlMaType.EMA)
+    atr_sl = ta.atr_sl(ma_type=AtrSlMaType.EMA)
     results = [atr_sl(q.hlc) for q in get_atr_sl_ema]
 
     assert math.isnan(results[0].short_sl)
@@ -149,7 +149,7 @@ def test_atr_sl_returns_correct_long_stop_loss_with_ma_type_ema(
     get_atr_sl_ema: list[Quote],
 ):
     """ATRSL should return the correct LONG stop loss with maType EMA."""
-    atr_sl = Ta.atr_sl(ma_type=AtrSlMaType.EMA)
+    atr_sl = ta.atr_sl(ma_type=AtrSlMaType.EMA)
     results = [atr_sl(q.hlc) for q in get_atr_sl_ema]
 
     assert math.isnan(results[0].long_sl)
@@ -175,7 +175,7 @@ def test_atr_sl_returns_correct_short_stop_loss_with_ma_type_wma(
     get_atr_sl_wma: list[Quote],
 ):
     """ATRSL should return the correct SHORT stop loss with maType WMA."""
-    atr_sl = Ta.atr_sl(ma_type=AtrSlMaType.WMA)
+    atr_sl = ta.atr_sl(ma_type=AtrSlMaType.WMA)
     results = [atr_sl(q.hlc) for q in get_atr_sl_wma]
 
     assert math.isnan(results[0].short_sl)
@@ -196,7 +196,7 @@ def test_atr_sl_returns_correct_long_stop_loss_with_ma_type_wma(
     get_atr_sl_wma: list[Quote],
 ):
     """ATRSL should return the correct LONG stop loss with maType WMA."""
-    atr_sl = Ta.atr_sl(ma_type=AtrSlMaType.WMA)
+    atr_sl = ta.atr_sl(ma_type=AtrSlMaType.WMA)
     results = [atr_sl(q.hlc) for q in get_atr_sl_wma]
 
     assert math.isnan(results[0].long_sl)
