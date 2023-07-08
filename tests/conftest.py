@@ -76,7 +76,7 @@ def get_eth_er(days: int = 600):
 
 @pytest.fixture(scope="package")
 def get_gold_lin_reg(days: int = 900):
-    return _get_quotes("gold_linreg.csv", days)
+    return _get_quotes("gold_linreg.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")

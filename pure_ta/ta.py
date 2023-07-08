@@ -13,7 +13,7 @@ from pure_ta._enum_types import AtrSlMaType, StDevOf
 from pure_ta._er import get_er
 from pure_ta._hma import get_hma
 from pure_ta._kama import get_kama
-from pure_ta._lin_reg import get_linreg
+from pure_ta._linreg import get_linreg
 from pure_ta._percent_rank import get_percent_rank
 from pure_ta._rma import get_rma
 from pure_ta._sma import get_sma
