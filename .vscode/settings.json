@@ -3,6 +3,7 @@
         "Arnaud",
         "atrsl",
         "bbwp",
+        "Bollinger",
         "Dema",
         "eurusd",
         "gitlint",
@@ -25,7 +26,8 @@
         "Atr",
         "Wma",
         "Tr",
-        "STD_dev"
+        "STD_dev",
+        "BB"
     ],
     "python.testing.pytestArgs": [
         "tests"

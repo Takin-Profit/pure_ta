@@ -4,6 +4,7 @@ from collections.abc import Callable
 from pure_ta._alma import get_alma
 from pure_ta._atr import get_atr
 from pure_ta._atr_sl import AtrSlResult, get_atr_sl
+from pure_ta._bb import BollingerResult, get_bb
 from pure_ta._ema import get_ema
 from pure_ta._enum_types import AtrSlMaType, StDevOf
 from pure_ta._rma import get_rma
@@ -87,3 +88,9 @@ class Ta:
         """Return a function that calculates the standard deviation."""
         _validate_arg("Standard Deviation", len)
         return get_st_dev(len, bias)
+
+    @staticmethod
+    def bb(len: int = 20, multi: int = 2) -> Callable[[float], BollingerResult]:
+        """Return a function that calculates the Bollinger Bands."""
+        _validate_arg("Bollinger Bands", len)
+        return get_bb(len, multi)
