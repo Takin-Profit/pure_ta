@@ -3,7 +3,9 @@ from collections.abc import Callable
 
 from pure_ta._alma import get_alma
 from pure_ta._atr import get_atr
+from pure_ta._atr_sl import AtrSlResult, get_atr_sl
 from pure_ta._ema import get_ema
+from pure_ta._enum_types import AtrSlMaType
 from pure_ta._rma import get_rma
 from pure_ta._sma import get_sma
 from pure_ta._tr import get_tr
@@ -68,3 +70,11 @@ class Ta:
     def tr(handle_na: bool = True) -> Callable[[Hlc], float]:
         """Return a function that calculates the True Range."""
         return get_tr(handle_na)
+
+    @staticmethod
+    def atr_sl(
+        length: int = 14, ma_type: AtrSlMaType = AtrSlMaType.RMA, multi: float = 1.5
+    ) -> Callable[[Hlc], AtrSlResult]:
+        """Return a function that calculates the Average True Range Stop Loss."""
+        _validate_arg("ATR_SL (Average True Range, Stop Loss)", length)
+        return get_atr_sl(length, ma_type, multi)

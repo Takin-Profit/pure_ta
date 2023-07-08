@@ -121,22 +121,22 @@ def get_btc_mom(days: int = 800):
 
 @pytest.fixture(scope="package")
 def get_atr_sl_rma(days: int = 800):
-    return _get_quotes("atrsl_rma.csv", days)
+    return _get_quotes("atrsl_rma.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")
 def get_atr_sl_sma(days: int = 800):
-    return _get_quotes("atrsl_sma.csv", days)
+    return _get_quotes("atrsl_sma.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")
 def get_atr_sl_ema(days: int = 800):
-    return _get_quotes("atrsl_ema.csv", days)
+    return _get_quotes("atrsl_ema.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")
 def get_atr_sl_wma(days: int = 800):
-    return _get_quotes("atrsl_wma.csv", days)
+    return _get_quotes("atrsl_wma.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")
