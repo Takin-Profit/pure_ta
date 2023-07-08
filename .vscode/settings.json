@@ -33,7 +33,8 @@
         "Dema",
         "ER",
         "HMA",
-        "KAMA  "
+        "KAMA  ",
+        "LIN_REG"
     ],
     "python.testing.pytestArgs": [
         "tests"

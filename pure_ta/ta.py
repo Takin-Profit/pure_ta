@@ -13,6 +13,7 @@ from pure_ta._enum_types import AtrSlMaType, StDevOf
 from pure_ta._er import get_er
 from pure_ta._hma import get_hma
 from pure_ta._kama import get_kama
+from pure_ta._lin_reg import get_linreg
 from pure_ta._percent_rank import get_percent_rank
 from pure_ta._rma import get_rma
 from pure_ta._sma import get_sma
@@ -139,3 +140,9 @@ def kama(length: int = 10) -> Callable[[float], float]:
     """Return a function that calculates the Kaufman's Adaptive Moving Average."""
     _validate_arg("KAMA (Kaufman's Adaptive Moving Average)", length)
     return get_kama(length)
+
+
+def linreg(length: int = 9) -> Callable[[float], float]:
+    """Return a function that calculates the Linear Regression."""
+    _validate_arg("Linear Regression", length)
+    return get_linreg(length)
