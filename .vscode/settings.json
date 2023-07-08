@@ -40,7 +40,8 @@
         "RSI",
         "SWMA",
         "SMMA",
-        "TCI"
+        "TCI",
+        "TEMA"
     ],
     "python.testing.pytestArgs": [
         "tests"

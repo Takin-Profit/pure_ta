@@ -24,6 +24,7 @@ from pure_ta._smma import get_smma
 from pure_ta._std_dev import get_st_dev
 from pure_ta._swma import get_swma
 from pure_ta._tci import get_tci
+from pure_ta._tema import get_tema
 from pure_ta._tr import get_tr
 from pure_ta._types import Hlc, PriceDataWithVol
 from pure_ta._wma import get_wma
@@ -187,3 +188,9 @@ def tci(length: int = 9) -> Callable[[float], float]:
     """Return a function that calculates the Trend Confidence Index."""
     _validate_arg("TCI (Trend Confidence Index)", length)
     return get_tci(length)
+
+
+def tema(length: int = 20) -> Callable[[float], float]:
+    """Return a function that calculates the Triple Exponential Moving Average."""
+    _validate_arg("TEMA (Triple Exponential Moving Average)", length)
+    return get_tema(length)
