@@ -1,5 +1,5 @@
 """buffer tests."""
-from array import array
+import math
 from math import isnan
 
 from pure_ta._circular_buf import CircularBuf
@@ -12,7 +12,7 @@ def test_circular_buf_init():
     assert buf.length == size
     assert buf.filled_size == 0
     assert buf.is_full is False
-    assert buf.values == array("d")
+    assert buf.values == []
     assert isnan(buf.first)
     assert isnan(buf.last)
 
@@ -78,8 +78,8 @@ def test_circular_buf_not_full():
 
     assert buf.filled_size == len(data)
     assert buf.is_full is False
-    assert isnan(buf.first)
-    assert isnan(buf.last)
+    assert buf.first is math.nan
+    assert buf.last is math.nan
 
 
 def test_circular_buf_fill_up():
