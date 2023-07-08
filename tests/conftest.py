@@ -106,7 +106,7 @@ def get_eth_kama(days: int = 600):
 
 @pytest.fixture(scope="package")
 def get_eth_bbwp(days: int = 700):
-    return _get_quotes("eth_bbwp.csv", days)
+    return _get_quotes("eth_bbwp.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")
@@ -151,7 +151,7 @@ def get_crude_percent_rank(days: int = 630):
 
 @pytest.fixture(scope="package")
 def get_eth_bbw(days: int = 630):
-    return _get_quotes("eth_bbw.csv", days)
+    return _get_quotes("eth_bbw.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")

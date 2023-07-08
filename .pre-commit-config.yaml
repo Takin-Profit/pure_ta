@@ -11,12 +11,14 @@ repos:
     rev: 22.10.0
     hooks:
       - id: black
+        exclude: ^\.vscode/.*
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
     rev: v0.0.276
     hooks:
       - id: ruff
+        exclude: ^\.vscode/.*
         args: [--fix, --exit-non-zero-on-fix]
 
   - repo: https://github.com/jorisroovers/gitlint
