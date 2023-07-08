@@ -21,6 +21,7 @@ from pure_ta._rma import get_rma
 from pure_ta._rsi import get_rsi
 from pure_ta._sma import get_sma
 from pure_ta._std_dev import get_st_dev
+from pure_ta._swma import get_swma
 from pure_ta._tr import get_tr
 from pure_ta._types import Hlc, PriceDataWithVol
 from pure_ta._wma import get_wma
@@ -167,3 +168,8 @@ def rsi(length: int = 14) -> Callable[[float], float]:
     """Return a function that calculates the Relative Strength Index."""
     _validate_arg("RSI (Relative Strength Index)", length, 2)
     return get_rsi(length)
+
+
+def swma() -> Callable[[float], float]:
+    """Return a function that calculates the Symmetrically Weighted Moving Average."""
+    return get_swma()
