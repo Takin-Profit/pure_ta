@@ -29,7 +29,8 @@
         "STD_dev",
         "BB",
         "BBW",
-        "Percent Rank"
+        "Percent Rank",
+        "Dema"
     ],
     "python.testing.pytestArgs": [
         "tests"

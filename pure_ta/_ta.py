@@ -7,6 +7,7 @@ from pure_ta._atr_sl import AtrSlResult, get_atr_sl
 from pure_ta._bb import BollingerResult, get_bb
 from pure_ta._bbw import get_bbw
 from pure_ta._bbwp import get_bbwp
+from pure_ta._dema import get_dema
 from pure_ta._ema import get_ema
 from pure_ta._enum_types import AtrSlMaType, StDevOf
 from pure_ta._percent_rank import get_percent_rank
@@ -115,3 +116,9 @@ class Ta:
         """Return a function that calculates the Bollinger Bands Width Percentile."""
         _validate_arg("Bollinger Bands Width Percentile", length)
         return get_bbwp(length)
+
+    @staticmethod
+    def dema(length: int = 20) -> Callable[[float], float]:
+        """Return a function that calculates the double exponential moving average."""
+        _validate_arg("DEMA (Double Exponential Moving Average)", length)
+        return get_dema(length)

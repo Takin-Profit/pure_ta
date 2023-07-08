@@ -32,8 +32,9 @@ def test_bbwp_returns_correct_calculation_results(get_eth_bbwp: list[Quote]):
     assert isnan(results[18])
     assert isnan(results[87])
 
+    # warmup period
     assert isclose(round(results[252], 5), 72.61905, rel_tol=2.4)
-
+    # warmup period complete
     assert round(results[501], 6) == 5.952381
 
     assert round(results[589], 6) == 25.793651
