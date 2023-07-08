@@ -30,7 +30,8 @@
         "BB",
         "BBW",
         "Percent Rank",
-        "Dema"
+        "Dema",
+        "ER"
     ],
     "python.testing.pytestArgs": [
         "tests"

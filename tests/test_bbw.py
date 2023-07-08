@@ -7,6 +7,10 @@ import math
 
 from pure_ta import Quote, Ta
 
+# expected results.
+# https://docs.google.com/spreadsheets/d/1wRUEeAw5MeG50_zmDDt4CsFnqrsfxk5OHtjQtVSvavs/edit?usp=sharing
+# data exported from tradingview.
+
 
 def test_bbw_returns_correct_number_of_results(get_eth_bbw: list[Quote]):
     """BBW results should have the correct length."""

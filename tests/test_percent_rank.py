@@ -6,6 +6,11 @@ from math import isnan
 
 from pure_ta import Quote, Ta
 
+# expected results.
+# https://docs.google.com/spreadsheets/d/1N9QbNyhS8a8sndj2mBMdC_fSfzJ-gTiR0zhnpHUemdQ/edit?usp=sharing
+#
+# data exported from tradingview.
+
 
 def test_percent_rank_results_have_correct_length(
     get_crude_percent_rank: list[Quote],

@@ -1,14 +1,14 @@
+"""wma tests."""
 # Copyright 2023 Takin Profit. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
-"""Expected results.
-
-* https://docs.google.com/spreadsheets/d/1n3-bYh1V0JMStMBIJKE6CSJCLMMEP19tD7vGkRrtq6I/edit?usp=sharing.
-"""
 
 from math import isnan
 
 from pure_ta import Quote, Ta
+
+# Expected results.
+# https://docs.google.com/spreadsheets/d/1n3-bYh1V0JMStMBIJKE6CSJCLMMEP19tD7vGkRrtq6I/edit?usp=sharing.
 
 
 def test_wma_returns_correct_number_of_results(get_default: list[Quote]):

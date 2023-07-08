@@ -1,10 +1,10 @@
-"""expected results.
-
-* https://docs.google.com/spreadsheets/d/1T14VAhzM14Yqf4sjE7UEcl1yJUyS27TRLPf0Bg-n3BY/edit?usp=sharing.
-"""  # noqa: E501
+"""alma tests."""
 import math
 
 from pure_ta import Quote, Ta
+
+# expected results.
+# https://docs.google.com/spreadsheets/d/1T14VAhzM14Yqf4sjE7UEcl1yJUyS27TRLPf0Bg-n3BY/edit?usp=sharing.
 
 
 def test_alma_returns_correct_number_of_results(get_default: list[Quote]):

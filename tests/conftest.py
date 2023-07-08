@@ -71,7 +71,7 @@ def get_btc_mfi(days: int = 820):
 
 @pytest.fixture(scope="package")
 def get_eth_er(days: int = 600):
-    return _get_quotes("eth_er.csv", days)
+    return _get_quotes("eth_er.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")

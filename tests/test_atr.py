@@ -1,17 +1,16 @@
+"""atr tests."""
 # Copyright 2023 Takin Profit. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
-"""Expected results.
-
-* https://docs.google.com/spreadsheets/d/1r4SE-GvhgRTV_etW1B1HIsfwiqZ2DANhTZfXXJV4EyE/edit?usp=sharing
-* data exported from tradingview.com
-"""
 from math import isclose, isnan
 
 from pure_ta import Quote, Ta
 
 
+# Expected results.
+# https://docs.google.com/spreadsheets/d/1r4SE-GvhgRTV_etW1B1HIsfwiqZ2DANhTZfXXJV4EyE/edit?usp=sharing
+# data exported from tradingview.com
 def test_atr_returns_correct_number_of_results(get_gold_atr: list[Quote]):
     """Atr results should have the correct length."""
     atr = Ta.atr()

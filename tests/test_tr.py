@@ -1,13 +1,13 @@
+"""Test True Range (TR) TA function."""
 # Copyright 2023 Takin Profit. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
-"""Expected results.
-
-* https://docs.google.com/spreadsheets/d/1bG_dLbUHhW07FRFH58p2A9ZSF5P5QskahsfMmhCQKkE/edit?usp=sharing
-"""
 from math import isnan
 
 from pure_ta import Quote, Ta
+
+# Expected results.
+# https://docs.google.com/spreadsheets/d/1bG_dLbUHhW07FRFH58p2A9ZSF5P5QskahsfMmhCQKkE/edit?usp=sharing
 
 
 def test_true_range_returns_correct_number_of_results(get_default: list[Quote]):

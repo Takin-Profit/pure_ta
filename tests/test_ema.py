@@ -1,10 +1,10 @@
-"""expected results.
-
-https://docs.google.com/spreadsheets/d/1lg7Fbz-986auSClakX9RS-Y-zrcDZYP8gfYSHQhHP4E/edit?usp=sharing.
-"""  # noqa: E501
+"""ema tests."""  # noqa: E501
 import math
 
 from pure_ta import Quote, Ta
+
+# expected results.
+# https://docs.google.com/spreadsheets/d/1lg7Fbz-986auSClakX9RS-Y-zrcDZYP8gfYSHQhHP4E/edit?usp=sharing.
 
 
 def test_ema_returns_correct_number_of_results(get_default: list[Quote]):

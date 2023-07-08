@@ -6,6 +6,10 @@ from math import isclose, isnan
 
 from pure_ta import Quote, Ta
 
+# expected results.
+# https://docs.google.com/spreadsheets/d/1x33gVMO4ZZdVmFwrIQoqR8u8iFARayk-XNoblY1jnic/edit?usp=sharing
+# data exported from tradingview.com
+
 
 def test_bbwp_results_have_correct_length(
     get_eth_bbwp: list[Quote],
