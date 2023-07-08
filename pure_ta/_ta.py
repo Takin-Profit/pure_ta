@@ -8,6 +8,7 @@ from pure_ta._bb import BollingerResult, get_bb
 from pure_ta._bbw import get_bbw
 from pure_ta._ema import get_ema
 from pure_ta._enum_types import AtrSlMaType, StDevOf
+from pure_ta._percent_rank import get_percent_rank
 from pure_ta._rma import get_rma
 from pure_ta._sma import get_sma
 from pure_ta._std_dev import get_st_dev
@@ -101,3 +102,9 @@ class Ta:
         """Return a function that calculates the Bollinger Bands Width."""
         _validate_arg("Bollinger Bands Width", len)
         return get_bbw(len, multi)
+
+    @staticmethod
+    def percent_rank(len: int = 20) -> Callable[[float], float]:
+        """Return a function that calculates the Percent Rank."""
+        _validate_arg("Percent Rank", len)
+        return get_percent_rank(len)
