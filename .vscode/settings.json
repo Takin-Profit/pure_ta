@@ -36,7 +36,8 @@
         "KAMA  ",
         "LIN_REG",
         "MFI",
-        "Mom"
+        "Mom",
+        "RSI"
     ],
     "python.testing.pytestArgs": [
         "tests"

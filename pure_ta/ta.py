@@ -18,6 +18,7 @@ from pure_ta._mfi import get_mfi
 from pure_ta._mom import get_mom
 from pure_ta._percent_rank import get_percent_rank
 from pure_ta._rma import get_rma
+from pure_ta._rsi import get_rsi
 from pure_ta._sma import get_sma
 from pure_ta._std_dev import get_st_dev
 from pure_ta._tr import get_tr
@@ -160,3 +161,9 @@ def mom(length: int = 20) -> Callable[[float], float]:
     """Return a function that calculates the Momentum."""
     _validate_arg("Momentum", length)
     return get_mom(length)
+
+
+def rsi(length: int = 14) -> Callable[[float], float]:
+    """Return a function that calculates the Relative Strength Index."""
+    _validate_arg("RSI (Relative Strength Index)", length)
+    return get_rsi(length)
