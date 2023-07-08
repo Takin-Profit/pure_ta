@@ -101,7 +101,7 @@ def get_eth_swma(days: int = 600):
 
 @pytest.fixture(scope="package")
 def get_eth_kama(days: int = 600):
-    return _get_quotes("eth_kama.csv", days)
+    return _get_quotes("eth_kama.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")
