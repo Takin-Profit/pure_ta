@@ -96,7 +96,7 @@ def get_eur_usd_phx(days: int = 700):
 
 @pytest.fixture(scope="package")
 def get_eth_swma(days: int = 600):
-    return _get_quotes("eth_swma.csv", days)
+    return _get_quotes("eth_swma.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")
