@@ -38,7 +38,8 @@
         "MFI",
         "Mom",
         "RSI",
-        "SWMA"
+        "SWMA",
+        "SMMA"
     ],
     "python.testing.pytestArgs": [
         "tests"

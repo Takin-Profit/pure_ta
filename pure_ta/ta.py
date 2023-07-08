@@ -20,6 +20,7 @@ from pure_ta._percent_rank import get_percent_rank
 from pure_ta._rma import get_rma
 from pure_ta._rsi import get_rsi
 from pure_ta._sma import get_sma
+from pure_ta._smma import get_smma
 from pure_ta._std_dev import get_st_dev
 from pure_ta._swma import get_swma
 from pure_ta._tr import get_tr
@@ -173,3 +174,8 @@ def rsi(length: int = 14) -> Callable[[float], float]:
 def swma() -> Callable[[float], float]:
     """Return a function that calculates the Symmetrically Weighted Moving Average."""
     return get_swma()
+
+
+def smma(length: int = 20) -> Callable[[float], float]:
+    """Return a function that calculates the Smoothed Moving Average."""
+    return get_smma(length)
