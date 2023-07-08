@@ -164,6 +164,5 @@ def get_btc_tsi(days: int = 900):
     return _get_quotes("btc_tsi.csv", days)
 
 
-@pytest.fixture(scope="package")
 def get_longish(days: int = 5285):  # type: ignore
     yield from _read_file_stream("longish.csv", days)

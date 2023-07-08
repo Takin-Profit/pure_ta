@@ -5,9 +5,10 @@ from pure_ta._alma import get_alma
 from pure_ta._atr import get_atr
 from pure_ta._atr_sl import AtrSlResult, get_atr_sl
 from pure_ta._ema import get_ema
-from pure_ta._enum_types import AtrSlMaType
+from pure_ta._enum_types import AtrSlMaType, StDevOf
 from pure_ta._rma import get_rma
 from pure_ta._sma import get_sma
+from pure_ta._std_dev import get_st_dev
 from pure_ta._tr import get_tr
 from pure_ta._types import Hlc
 from pure_ta._wma import get_wma
@@ -78,3 +79,11 @@ class Ta:
         """Return a function that calculates the Average True Range Stop Loss."""
         _validate_arg("ATR_SL (Average True Range, Stop Loss)", length)
         return get_atr_sl(length, ma_type, multi)
+
+    @staticmethod
+    def std_dev(
+        len: int = 20, bias: StDevOf = StDevOf.POPULATION
+    ) -> Callable[[float], float]:
+        """Return a function that calculates the standard deviation."""
+        _validate_arg("Standard Deviation", len)
+        return get_st_dev(len, bias)

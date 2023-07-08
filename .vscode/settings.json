@@ -24,7 +24,8 @@
         "Rma",
         "Atr",
         "Wma",
-        "Tr"
+        "Tr",
+        "STD_dev"
     ],
     "python.testing.pytestArgs": [
         "tests"
