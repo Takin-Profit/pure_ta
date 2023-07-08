@@ -178,4 +178,5 @@ def swma() -> Callable[[float], float]:
 
 def smma(length: int = 20) -> Callable[[float], float]:
     """Return a function that calculates the Smoothed Moving Average."""
+    _validate_arg("SMMA (Smoothed Moving Average)", length)
     return get_smma(length)
