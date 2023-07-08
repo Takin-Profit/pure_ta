@@ -165,5 +165,5 @@ def mom(length: int = 20) -> Callable[[float], float]:
 
 def rsi(length: int = 14) -> Callable[[float], float]:
     """Return a function that calculates the Relative Strength Index."""
-    _validate_arg("RSI (Relative Strength Index)", length)
+    _validate_arg("RSI (Relative Strength Index)", length, 2)
     return get_rsi(length)
