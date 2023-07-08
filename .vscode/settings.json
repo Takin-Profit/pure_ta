@@ -32,7 +32,8 @@
         "Percent Rank",
         "Dema",
         "ER",
-        "HMA"
+        "HMA",
+        "KAMA  "
     ],
     "python.testing.pytestArgs": [
         "tests"
