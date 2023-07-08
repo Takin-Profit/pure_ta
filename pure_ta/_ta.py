@@ -6,6 +6,7 @@ from pure_ta._atr import get_atr
 from pure_ta._atr_sl import AtrSlResult, get_atr_sl
 from pure_ta._bb import BollingerResult, get_bb
 from pure_ta._bbw import get_bbw
+from pure_ta._bbwp import get_bbwp
 from pure_ta._ema import get_ema
 from pure_ta._enum_types import AtrSlMaType, StDevOf
 from pure_ta._percent_rank import get_percent_rank
@@ -108,3 +109,9 @@ class Ta:
         """Return a function that calculates the Percent Rank."""
         _validate_arg("Percent Rank", len)
         return get_percent_rank(len)
+
+    @staticmethod
+    def bbwp(length: int = 13) -> Callable[[float], float]:
+        """Return a function that calculates the Bollinger Bands Width Percentile."""
+        _validate_arg("Bollinger Bands Width Percentile", length)
+        return get_bbwp(length)

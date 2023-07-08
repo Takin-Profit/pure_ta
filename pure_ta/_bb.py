@@ -18,10 +18,10 @@ class BollingerResult:
     lower: float
 
 
-def get_bb(len: int = 20, multi: int = 2) -> Callable[[float], BollingerResult]:
+def get_bb(length: int = 20, multi: int = 2) -> Callable[[float], BollingerResult]:
     counter = 0
-    sma = get_sma(length=len)
-    st_dev = get_st_dev(len=len)
+    sma = get_sma(length=length)
+    st_dev = get_st_dev(length=length)
 
     def compute(value: float) -> BollingerResult:
         nonlocal counter
@@ -29,7 +29,7 @@ def get_bb(len: int = 20, multi: int = 2) -> Callable[[float], BollingerResult]:
         avg = sma(value)
         std = st_dev(value)
 
-        if counter < len:
+        if counter < length:
             return BollingerResult(upper=nan, lower=nan, middle=nan)
         else:
             return BollingerResult(

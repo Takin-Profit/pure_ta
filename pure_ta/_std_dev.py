@@ -9,17 +9,17 @@ from pure_ta._enum_types import StDevOf
 
 
 def get_st_dev(
-    len: int = 20, bias: StDevOf = StDevOf.POPULATION
+    length: int = 20, bias: StDevOf = StDevOf.POPULATION
 ) -> Callable[[float], float]:
-    buf = CircularBuf(size=len)
+    buf = CircularBuf(size=length)
     sum_ = 0.0
     sum_of_squares = 0.0
 
     def divisor() -> int:
         if bias == StDevOf.POPULATION:
-            return len
-        elif len - 1 > 0:
-            return len - 1
+            return length
+        elif length - 1 > 0:
+            return length - 1
         else:
             raise ValueError("Cannot calculate sample stdev for buffer of length 1")
 
@@ -37,10 +37,10 @@ def get_st_dev(
         if not buf.is_full:
             return float("nan")
 
-        mean = sum_ / len
-        mean_of_squares = sum_of_squares / len
+        mean = sum_ / length
+        mean_of_squares = sum_of_squares / length
         variance = mean_of_squares - mean * mean
-        adjusted_variance = variance * len / divisor()  # Adjust variance for bias
+        adjusted_variance = variance * length / divisor()  # Adjust variance for bias
 
         return sqrt(adjusted_variance)
 
