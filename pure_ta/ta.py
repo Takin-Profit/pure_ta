@@ -26,6 +26,7 @@ from pure_ta._swma import get_swma
 from pure_ta._tci import get_tci
 from pure_ta._tema import get_tema
 from pure_ta._tr import get_tr
+from pure_ta._tsi import TsiResult, get_tsi
 from pure_ta._types import Hlc, PriceDataWithVol
 from pure_ta._wma import get_wma
 
@@ -194,3 +195,11 @@ def tema(length: int = 20) -> Callable[[float], float]:
     """Return a function that calculates the Triple Exponential Moving Average."""
     _validate_arg("TEMA (Triple Exponential Moving Average)", length)
     return get_tema(length)
+
+
+def tsi(
+    length: int = 25, smooth_len: int = 13, signal_len: int = 13
+) -> Callable[[float], TsiResult]:
+    """Return a function that calculates the True Strength Index."""
+    _validate_arg("TSI (True Strength Index)", length)
+    return get_tsi(length, smooth_len, signal_len)
