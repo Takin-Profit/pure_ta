@@ -5,6 +5,7 @@ from pure_ta._alma import get_alma
 from pure_ta._atr import get_atr
 from pure_ta._atr_sl import AtrSlResult, get_atr_sl
 from pure_ta._bb import BollingerResult, get_bb
+from pure_ta._bbw import get_bbw
 from pure_ta._ema import get_ema
 from pure_ta._enum_types import AtrSlMaType, StDevOf
 from pure_ta._rma import get_rma
@@ -94,3 +95,9 @@ class Ta:
         """Return a function that calculates the Bollinger Bands."""
         _validate_arg("Bollinger Bands", len)
         return get_bb(len, multi)
+
+    @staticmethod
+    def bbw(len: int = 5, multi: int = 4) -> Callable[[float], float]:
+        """Return a function that calculates the Bollinger Bands Width."""
+        _validate_arg("Bollinger Bands Width", len)
+        return get_bbw(len, multi)

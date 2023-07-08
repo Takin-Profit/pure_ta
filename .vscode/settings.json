@@ -27,7 +27,8 @@
         "Wma",
         "Tr",
         "STD_dev",
-        "BB"
+        "BB",
+        "BBW"
     ],
     "python.testing.pytestArgs": [
         "tests"
