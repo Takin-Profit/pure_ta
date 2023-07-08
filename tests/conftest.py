@@ -146,7 +146,7 @@ def get_btc_tr(days: int = 420):
 
 @pytest.fixture(scope="package")
 def get_crude_percent_rank(days: int = 630):
-    return _get_quotes("%_rank_crude.csv", days)
+    return _get_quotes("%_rank_crude.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")

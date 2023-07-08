@@ -28,7 +28,8 @@
         "Tr",
         "STD_dev",
         "BB",
-        "BBW"
+        "BBW",
+        "Percent Rank"
     ],
     "python.testing.pytestArgs": [
         "tests"
