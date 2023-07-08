@@ -34,7 +34,8 @@
         "ER",
         "HMA",
         "KAMA  ",
-        "LIN_REG"
+        "LIN_REG",
+        "MFI"
     ],
     "python.testing.pytestArgs": [
         "tests"

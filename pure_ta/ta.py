@@ -14,12 +14,13 @@ from pure_ta._er import get_er
 from pure_ta._hma import get_hma
 from pure_ta._kama import get_kama
 from pure_ta._linreg import get_linreg
+from pure_ta._mfi import get_mfi
 from pure_ta._percent_rank import get_percent_rank
 from pure_ta._rma import get_rma
 from pure_ta._sma import get_sma
 from pure_ta._std_dev import get_st_dev
 from pure_ta._tr import get_tr
-from pure_ta._types import Hlc
+from pure_ta._types import Hlc, PriceDataWithVol
 from pure_ta._wma import get_wma
 
 
@@ -146,3 +147,9 @@ def linreg(length: int = 9) -> Callable[[float], float]:
     """Return a function that calculates the Linear Regression."""
     _validate_arg("Linear Regression", length)
     return get_linreg(length)
+
+
+def mfi(length: int = 14) -> Callable[[PriceDataWithVol], float]:
+    """Return a function that calculates the Money Flow Index."""
+    _validate_arg("MFI (Money Flow Index)", length)
+    return get_mfi(length)
