@@ -23,6 +23,7 @@ from pure_ta._sma import get_sma
 from pure_ta._smma import get_smma
 from pure_ta._std_dev import get_st_dev
 from pure_ta._swma import get_swma
+from pure_ta._tci import get_tci
 from pure_ta._tr import get_tr
 from pure_ta._types import Hlc, PriceDataWithVol
 from pure_ta._wma import get_wma
@@ -180,3 +181,9 @@ def smma(length: int = 20) -> Callable[[float], float]:
     """Return a function that calculates the Smoothed Moving Average."""
     _validate_arg("SMMA (Smoothed Moving Average)", length)
     return get_smma(length)
+
+
+def tci(length: int = 9) -> Callable[[float], float]:
+    """Return a function that calculates the Trend Confidence Index."""
+    _validate_arg("TCI (Trend Confidence Index)", length)
+    return get_tci(length)
