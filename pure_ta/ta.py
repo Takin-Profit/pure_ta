@@ -28,6 +28,7 @@ from pure_ta._tema import get_tema
 from pure_ta._tr import get_tr
 from pure_ta._tsi import TsiResult, get_tsi
 from pure_ta._types import Hlc, PriceDataWithVol
+from pure_ta._vwma import get_vwma
 from pure_ta._wma import get_wma
 
 
@@ -203,3 +204,9 @@ def tsi(
     """Return a function that calculates the True Strength Index."""
     _validate_arg("TSI (True Strength Index)", length)
     return get_tsi(length, smooth_len, signal_len)
+
+
+def vwma(length: int = 20) -> Callable[[PriceDataWithVol], float]:
+    """Return a function that calculates the Volume Weighted Moving Average."""
+    _validate_arg("VWMA (Volume Weighted Moving Average)", length)
+    return get_vwma(length)
