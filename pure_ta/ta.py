@@ -31,6 +31,7 @@ from pure_ta._types import Hlc, PriceDataWithVol
 from pure_ta._vwma import get_vwma
 from pure_ta._willy import get_willy
 from pure_ta._wma import get_wma
+from pure_ta._wpr import get_wpr
 
 
 def _validate_arg(indicator: str, value: int, min_value: int = 1):
@@ -217,3 +218,9 @@ def willy(length: int = 6) -> Callable[[float], float]:
     """Return a function that calculates the Willy (A specialized Williams %R)."""
     _validate_arg("WILLY (Williams %R)", length)
     return get_willy(length)
+
+
+def wpr(length: int = 20) -> Callable[[Hlc], float]:
+    """Return a function that calculates the Williams %R."""
+    _validate_arg("WPR (Williams %R)", length)
+    return get_wpr(length)

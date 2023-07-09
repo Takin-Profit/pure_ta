@@ -43,7 +43,8 @@
         "TCI",
         "TEMA",
         "TSI",
-        "VWMA"
+        "VWMA",
+        "WPR"
     ],
     "python.testing.pytestArgs": [
         "tests"
