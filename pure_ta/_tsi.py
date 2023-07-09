@@ -20,7 +20,7 @@ def double_smooth(long: int, short: int) -> Callable[[float], float]:
     return apply_double_smooth
 
 
-@dataclass
+@dataclass(frozen=True, slots=True)
 class TsiResult:
     """The result of calculating the TSI indicator."""
 
@@ -29,11 +29,11 @@ class TsiResult:
 
 
 def get_tsi(
-    len: int = 25, smooth_len: int = 13, signal_len: int = 13
+    length: int = 25, smooth_len: int = 13, signal_len: int = 13
 ) -> Callable[[float], TsiResult]:
     last_value = None
-    double_smooth_pc = double_smooth(long=len, short=smooth_len)
-    double_smooth_apc = double_smooth(long=len, short=smooth_len)
+    double_smooth_pc = double_smooth(long=length, short=smooth_len)
+    double_smooth_apc = double_smooth(long=length, short=smooth_len)
     ema_signal = get_ema(length=signal_len)
 
     def tsi_function(value: float) -> TsiResult:

@@ -45,7 +45,8 @@
         "TEMA",
         "TSI",
         "VWMA",
-        "WPR"
+        "WPR",
+        "Phx"
     ],
     "python.testing.pytestArgs": [
         "tests"

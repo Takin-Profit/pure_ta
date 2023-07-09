@@ -7,8 +7,8 @@ from collections.abc import Callable
 from pure_ta._circular_buf import CircularBuf
 
 
-def get_percent_rank(len: int = 20) -> Callable[[float], float]:
-    buf = CircularBuf(size=len)
+def get_percent_rank(length: int = 20) -> Callable[[float], float]:
+    buf = CircularBuf(size=length)
 
     def compute(data: float) -> float:
         count = 0
@@ -18,7 +18,7 @@ def get_percent_rank(len: int = 20) -> Callable[[float], float]:
             for value in buf.ordered_values:
                 if value <= data:
                     count += 1
-            percent_rank = (count * 100.0) / len
+            percent_rank = (count * 100.0) / length
 
         buf.put(data)
 

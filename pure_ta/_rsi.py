@@ -6,7 +6,7 @@ from collections.abc import Callable
 from math import isnan, nan
 
 
-def get_rsi(len: int = 14) -> Callable[[float], float]:
+def get_rsi(length: int = 14) -> Callable[[float], float]:
     last_value = nan
     avg_gain = 0.0
     avg_loss = 0.0
@@ -23,19 +23,19 @@ def get_rsi(len: int = 14) -> Callable[[float], float]:
             gain = max(0, change)
             loss = max(0, -change)
 
-        if count < len:
+        if count < length:
             # Calculating the first average gain and loss
             avg_gain = ((avg_gain * count) + gain) / (count + 1)
             avg_loss = ((avg_loss * count) + loss) / (count + 1)
         else:
             # Calculating the subsequent average gain and loss
-            avg_gain = ((avg_gain * (len - 1)) + gain) / len
-            avg_loss = ((avg_loss * (len - 1)) + loss) / len
+            avg_gain = ((avg_gain * (length - 1)) + gain) / length
+            avg_loss = ((avg_loss * (length - 1)) + loss) / length
 
         count += 1
         last_value = current_value
 
-        if count < len:
+        if count < length:
             return nan
         rs = avg_gain / avg_loss if avg_loss != 0 else nan
 

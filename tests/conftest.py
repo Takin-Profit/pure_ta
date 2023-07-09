@@ -91,7 +91,7 @@ def get_gold_willy(days: int = 1000):
 
 @pytest.fixture(scope="package")
 def get_eur_usd_phx(days: int = 700):
-    return _get_quotes("eurusd_phx.csv", days)
+    return _get_quotes("eurusd_phx.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")

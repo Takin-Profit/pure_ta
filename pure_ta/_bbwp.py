@@ -8,7 +8,7 @@ from pure_ta._percent_rank import get_percent_rank
 
 
 def get_bbwp(length: int = 13) -> Callable[[float], float]:
-    percent_rank = get_percent_rank(len=252)
+    percent_rank = get_percent_rank(length=252)
     bbw = get_bbw(length=length, multi=1)
 
     def compute(data: float) -> float:

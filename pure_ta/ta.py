@@ -17,6 +17,7 @@ from pure_ta._linreg import get_linreg
 from pure_ta._mfi import get_mfi
 from pure_ta._mom import get_mom
 from pure_ta._percent_rank import get_percent_rank
+from pure_ta._phx import PhoenixResult, get_phx
 from pure_ta._rma import get_rma
 from pure_ta._rsi import get_rsi
 from pure_ta._sma import get_sma
@@ -27,7 +28,7 @@ from pure_ta._tci import get_tci
 from pure_ta._tema import get_tema
 from pure_ta._tr import get_tr
 from pure_ta._tsi import TsiResult, get_tsi
-from pure_ta._types import Hlc, PriceDataWithVol
+from pure_ta._types import Hlc, PriceDataWithVol, Quote
 from pure_ta._vwma import get_vwma
 from pure_ta._willy import get_willy
 from pure_ta._wma import get_wma
@@ -98,29 +99,29 @@ def atr_sl(
 
 
 def std_dev(
-    len: int = 20, bias: StDevOf = StDevOf.POPULATION
+    length: int = 20, bias: StDevOf = StDevOf.POPULATION
 ) -> Callable[[float], float]:
     """Return a function that calculates the standard deviation."""
-    _validate_arg("Standard Deviation", len)
-    return get_st_dev(len, bias)
+    _validate_arg("Standard Deviation", length)
+    return get_st_dev(length, bias)
 
 
-def bb(len: int = 20, multi: int = 2) -> Callable[[float], BollingerResult]:
+def bb(length: int = 20, multi: int = 2) -> Callable[[float], BollingerResult]:
     """Return a function that calculates the Bollinger Bands."""
-    _validate_arg("Bollinger Bands", len)
-    return get_bb(len, multi)
+    _validate_arg("Bollinger Bands", length)
+    return get_bb(length, multi)
 
 
-def bbw(len: int = 5, multi: int = 4) -> Callable[[float], float]:
+def bbw(length: int = 5, multi: int = 4) -> Callable[[float], float]:
     """Return a function that calculates the Bollinger Bands Width."""
-    _validate_arg("Bollinger Bands Width", len)
-    return get_bbw(len, multi)
+    _validate_arg("Bollinger Bands Width", length)
+    return get_bbw(length, multi)
 
 
-def percent_rank(len: int = 20) -> Callable[[float], float]:
+def percent_rank(length: int = 20) -> Callable[[float], float]:
     """Return a function that calculates the Percent Rank."""
-    _validate_arg("Percent Rank", len)
-    return get_percent_rank(len)
+    _validate_arg("Percent Rank", length)
+    return get_percent_rank(length)
 
 
 def bbwp(length: int = 13) -> Callable[[float], float]:
@@ -224,3 +225,8 @@ def wpr(length: int = 14) -> Callable[[Hlc], float]:
     """Return a function that calculates the Williams %R."""
     _validate_arg("WPR (Williams %R)", length)
     return get_wpr(length)
+
+
+def phx() -> Callable[[Quote], PhoenixResult]:
+    """Return a function that calculates the Phoenix Ascending Oscillator."""
+    return get_phx()
