@@ -86,7 +86,7 @@ def get_gold_tci(days: int = 900):
 
 @pytest.fixture(scope="package")
 def get_gold_willy(days: int = 1000):
-    return _get_quotes("gold_willy.csv", days)
+    return _get_quotes("gold_willy.csv", days, use_timestamp=True)
 
 
 @pytest.fixture(scope="package")
