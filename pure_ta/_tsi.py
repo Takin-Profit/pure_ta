@@ -61,6 +61,6 @@ def get_tsi(
         )
         signal = ema_signal(tsi)
 
-        return TsiResult(tsi=tsi, signal=float("nan") if isnan(signal) else signal)
+        return TsiResult(tsi=tsi, signal=signal)
 
     return tsi_function
