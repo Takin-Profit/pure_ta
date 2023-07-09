@@ -29,6 +29,7 @@ from pure_ta._tr import get_tr
 from pure_ta._tsi import TsiResult, get_tsi
 from pure_ta._types import Hlc, PriceDataWithVol
 from pure_ta._vwma import get_vwma
+from pure_ta._willy import get_willy
 from pure_ta._wma import get_wma
 
 
@@ -210,3 +211,9 @@ def vwma(length: int = 20) -> Callable[[PriceDataWithVol], float]:
     """Return a function that calculates the Volume Weighted Moving Average."""
     _validate_arg("VWMA (Volume Weighted Moving Average)", length)
     return get_vwma(length)
+
+
+def willy(length: int = 6) -> Callable[[float], float]:
+    """Return a function that calculates the Willy (A specialized Williams %R)."""
+    _validate_arg("WILLY (Williams %R)", length)
+    return get_willy(length)

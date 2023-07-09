@@ -7,14 +7,14 @@ from typing import Self, Union
 from pure_ta._enum_types import CandlePart
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class ErrMsg:
     """an error message."""
 
     msg: str
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class Hlc:
     """Represents the high, low, and close prices of a financial asset."""
 
@@ -26,7 +26,7 @@ class Hlc:
 # flake8: noqa
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class PriceData:
     """Represents price data for a financial asset at the specified time."""
 
@@ -34,7 +34,7 @@ class PriceData:
     value: float
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class PriceDataWithVol:
     """Represents price and volume data for a financial asset.
     at the specified time."""

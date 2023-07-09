@@ -13,7 +13,7 @@ from pure_ta._types import Hlc
 from pure_ta._wma import get_wma
 
 
-def _get_ma_type(length: int, ma_type: AtrSlMaType) -> Callable[[float], float]:
+def _get_ma_type(length: int, ma_type: AtrSlMaType) -> Callable[[float], float]:  # type: ignore  # noqa: E501
     match ma_type:
         case AtrSlMaType.SMA:
             return get_sma(length)
@@ -25,7 +25,7 @@ def _get_ma_type(length: int, ma_type: AtrSlMaType) -> Callable[[float], float]:
             return get_rma(length)
 
 
-@dataclass
+@dataclass(frozen=True, slots=True)
 class AtrSlResult:
     long_sl: float
     short_sl: float

@@ -9,7 +9,7 @@ from pure_ta._sma import get_sma
 from pure_ta._std_dev import get_st_dev
 
 
-@dataclass
+@dataclass(frozen=True, slots=True)
 class BollingerResult:
     """Result of a Bollinger Band calculation."""
 
