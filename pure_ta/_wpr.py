@@ -9,7 +9,7 @@ from pure_ta._circular_buf import CircularBuf
 from pure_ta._types import Hlc
 
 
-def get_wpr(len: int = 20) -> Callable[[Hlc], float]:
+def get_wpr(len: int = 14) -> Callable[[Hlc], float]:
     """Returns a function that calculates the Williams %R."""
     highest_buffer = CircularBuf(size=len)
     lowest_buffer = CircularBuf(size=len)

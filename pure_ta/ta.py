@@ -220,7 +220,7 @@ def willy(length: int = 6) -> Callable[[float], float]:
     return get_willy(length)
 
 
-def wpr(length: int = 20) -> Callable[[Hlc], float]:
+def wpr(length: int = 14) -> Callable[[Hlc], float]:
     """Return a function that calculates the Williams %R."""
     _validate_arg("WPR (Williams %R)", length)
     return get_wpr(length)
